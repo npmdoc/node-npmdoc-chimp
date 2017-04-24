@@ -1,0 +1,156 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/xolvio/chimp#readme"
+
+    >chimp (v0.48.0)</a>
+</h1>
+<h4>Develop acceptance tests & end-to-end tests with realtime feedback.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.chimp">module chimp</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.chimp.chimp">
+            function <span class="apidocSignatureSpan"></span>chimp
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.chimp.install">
+            function <span class="apidocSignatureSpan">chimp.</span>install
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">chimp.</span>bin</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.chimp" id="apidoc.module.chimp">module chimp</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.chimp.chimp" id="apidoc.element.chimp.chimp">
+        function <span class="apidocSignatureSpan"></span>chimp
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Chimp(options) {
+
+  this.chokidar = chokidar;
+  this.options = options || {};
+  this.processes = [];
+  this.isInterrupting = false;
+  this.exec = require(&#x27;child_process&#x27;).exec;
+  this.fs = fs;
+  this.testRunnerRunOrder = [];
+  this.watcher = undefined;
+
+  // store all cli parameters in env hash
+  // Note: Environment variables are always strings.
+  for (var option in options) {
+    if (option === &#x27;ddp&#x27;) {
+      handleDdpOption(options);
+    } else {
+      process.env[&#x27;chimp.&#x27; + option] = _.isObject(options[option]) ? (0, _stringify2.default)(options[option]) : String(options[
+option]);
+    }
+  }
+
+  this._handleChimpInterrupt();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.chimp.install" id="apidoc.element.chimp.install">
+        function <span class="apidocSignatureSpan">chimp.</span>install
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">install = function (callback) {
+  log.debug(&#x27;[chimp]&#x27;, &#x27;Installing dependencies&#x27;);
+  new exports.Selenium({ port: &#x27;1&#x27; }).install(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
